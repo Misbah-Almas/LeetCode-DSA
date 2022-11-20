@@ -1,6 +1,8 @@
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
         
+        //frequency array approach
+        
         ArrayList<Integer> arr = new ArrayList<>();
         int n = s.length();
         int m = p.length();
