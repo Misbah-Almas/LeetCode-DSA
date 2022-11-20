@@ -1,6 +1,6 @@
 class Solution {
     public int subarraysWithKDistinct(int[] nums, int k) {
-        //At most k - At most k-1 == exatct k distinct elements
+        //At most k - At most k-1 == exatct k distinct
         return atMostKDistinct(nums, k)-atMostKDistinct(nums, k-1);
     }
     
