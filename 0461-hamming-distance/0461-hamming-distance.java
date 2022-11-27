@@ -1,5 +1,6 @@
 class Solution {
     public int hammingDistance(int x, int y) {
+        //using bit manipulation
         int n = x^y;
 		int ans = 0;
 		while(n!=0){
