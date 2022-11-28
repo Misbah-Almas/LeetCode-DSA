@@ -1,6 +1,7 @@
 class Solution {
     public int[] xorQueries(int[] arr, int[][] queries) {
         int[] ans = new int[queries.length];
+        // using prefix sum concept
         int[] prefixXor = new int[arr.length];
         prefixXor[0] = arr[0];
         
