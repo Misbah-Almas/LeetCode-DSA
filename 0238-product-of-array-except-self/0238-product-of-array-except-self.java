@@ -1,6 +1,6 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-    
+    //prefix array concept
     int n = nums.length;
     
     int pparr[] = new int[n];
