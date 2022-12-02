@@ -1,6 +1,5 @@
 class Solution {
     public int equalSubstring(String s, String t, int k) {
-        //equal Substring
         int n = s.length();
         int start = 0;
         int end = 0;
