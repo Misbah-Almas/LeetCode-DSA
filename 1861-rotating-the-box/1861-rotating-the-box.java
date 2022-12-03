@@ -1,6 +1,5 @@
 class Solution {
     public char[][] rotateTheBox(char[][] box) {
-        //(Neo Learns Gravity - Accio)
         int rows = box.length;
         int cols = box[0].length;
         for(int i = 0; i < rows; i++) {
