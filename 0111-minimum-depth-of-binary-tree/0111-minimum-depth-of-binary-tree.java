@@ -15,7 +15,6 @@
  */
 class Solution {
     public int minDepth(TreeNode node) {
-        // must take care of all the the test cases
         if(node==null) return 0;
         if(node.left==null && node.right==null)return 1;
         if(node.left==null && node.right!=null)
