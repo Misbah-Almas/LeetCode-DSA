@@ -25,6 +25,6 @@ class Solution {
         
 		int left = minDepth(node.left);
 		int right = minDepth(node.right);
-		return (int)Math.min(left, right) + 1;
+		return Math.min(left, right) + 1;
     }
 }
