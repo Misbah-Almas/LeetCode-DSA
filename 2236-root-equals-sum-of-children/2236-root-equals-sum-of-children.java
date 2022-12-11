@@ -15,7 +15,6 @@
  */
 class Solution {
     public boolean checkTree(TreeNode root) {
-        //Check root val is equal to left val + right val
         if(root.val == root.left.val + root.right.val)
             return true;
         return false;
