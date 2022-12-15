@@ -1,6 +1,6 @@
 class Solution {
     public void rotate(int[][] a) {
-        int n = a[0].length;
+        int n = a.length;
         for(int i=0; i<n/2; i++){
             for(int j=i; j<n-1-i; j++){
                 int temp = a[i][j];
