@@ -22,13 +22,13 @@ class Solution {
         while(!q.isEmpty()){
             int s = q.size();
             List<Integer> currLevel = new ArrayList<>();
-            while(s-->0){
+            while(s-->0){ // run for every level
             TreeNode curr = q.poll();
             currLevel.add(curr.val);
             if(curr.left != null) q.offer(curr.left);
             if(curr.right != null) q.offer(curr.right);
             }
-            ans.add(currLevel);
+            ans.add(currLevel); //add list for every level
         }
         return ans;
     }
