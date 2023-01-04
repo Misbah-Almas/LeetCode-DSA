@@ -19,7 +19,7 @@ class Solution {
         inOrder(root, k);
 		return ans;
     }
-    void inOrder(TreeNode root, int k){
+    void inOrder(TreeNode root, int k){ // inorder 
 		if(root==null) return;
 		inOrder(root.left, k);
 		count++;
