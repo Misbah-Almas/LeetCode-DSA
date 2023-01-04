@@ -5,7 +5,7 @@ class Solution {
         for(int i=0; i<tasks.length; i++){
             map.put(tasks[i], map.getOrDefault(tasks[i], 0)+1);
         }
-        //Gready Approach
+        //Greedy Approach
         for(Integer i : map.keySet()){
             if(map.get(i)==1)return -1;
             rounds += map.get(i)/3;
