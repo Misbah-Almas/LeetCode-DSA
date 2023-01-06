@@ -5,9 +5,9 @@ class Solution {
         Arrays.sort(costs);
         for(int i=0; i<costs.length; i++){
            sum += costs[i];
-            if(sum>coins) return count;
+            if(sum>coins) return count;//All coins spent
             else count++;
         }
-        return count;
+        return count;//have enough coins to buy all 
     }
 }
