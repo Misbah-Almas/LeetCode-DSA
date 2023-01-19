@@ -1,8 +1,7 @@
 class Solution {
     public long countPairs(int n, int[][] edges) {
         
-           int k = edges.length;
-        // if(k==0)return fact(n-1);
+        int k = edges.length;
         
         
 		ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
@@ -26,20 +25,8 @@ class Solution {
                 ans += curr*sum;
 			}
 		}
-
-		// long ans = 0;
-		// for(int i=0; i<nodesCount.size(); i++){
-		// 	for(int j=i+1; j<nodesCount.size(); j++){
-		// 		ans += nodesCount.get(i)*nodesCount.get(j);
-		// 	}
-		// }
 		return ans;
     }
-    
-    // private long fact(long n){
-    //         if(n==0)return 1;
-    //         return n*fact(n-1);
-    //     }
 
 	private long bfs(ArrayList<ArrayList<Integer>> graph, int x, boolean[] vis){
 		Queue<Integer> q = new LinkedList<>();
