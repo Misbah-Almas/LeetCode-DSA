@@ -4,7 +4,7 @@ class Solution {
         helper(s, 0, 0, "", res);
         return res;
     }
-    
+
     private void helper(String s, int i, int par, String ans, List<String> res){
         if(i==s.length() || par==4){ // boundary condition
             if(i==s.length() && par==4){ // adding to list when hit this condition
