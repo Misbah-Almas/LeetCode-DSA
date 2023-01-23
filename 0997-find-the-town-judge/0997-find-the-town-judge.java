@@ -1,5 +1,6 @@
 class Solution {
     public int findJudge(int n, int[][] trust) {
+        // indegree and outdegree of vertex
         int ans = -1;
         int[] in = new int[n];
         int[] out = new int[n];
