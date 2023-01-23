@@ -1,4 +1,5 @@
 class Solution {
+    //backtracking
     public List<List<String>> partition(String s) {
         List<List<String>> res = new ArrayList<>();
         List<String> path = new ArrayList<>();
