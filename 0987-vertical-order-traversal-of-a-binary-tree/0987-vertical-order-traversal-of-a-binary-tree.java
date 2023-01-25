@@ -15,7 +15,7 @@
  */
 class Solution {
     //veritical traversal but if two node is in same hd and lvl then uning pq to get that
-    //in sorted order otherwise use map<Integer, List<Integer>>
+    //in sorted order otherwise use map<Integer, List<Integer>>...
     public List<List<Integer>> verticalTraversal(TreeNode rootPrime) {
         Queue<Tuple> q = new LinkedList<Tuple>();
         TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map = new TreeMap<>();
