@@ -140,7 +140,7 @@ class Solution
         q.add(new Pair(0, root));
         while(!q.isEmpty()){
             Pair curr = q.poll();
-            //map will get updated every time
+            //map will get updated only if it does not contain value wrt curr hd
             if(!map.containsKey(curr.hd)){
                 map.put(curr.hd, curr.root.data);
             }
