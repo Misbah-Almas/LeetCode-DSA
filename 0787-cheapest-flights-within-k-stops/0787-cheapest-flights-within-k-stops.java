@@ -1,55 +1,73 @@
+class Pair{
+    int first;
+    int second;
+    public Pair(int first,int second){
+        this.first = first;
+        this.second = second;
+    }
+}
+class Tuple {
+    int first, second, third; 
+    Tuple(int first, int second, int third) {
+        this.first = first; 
+        this.second = second;
+        this.third = third; 
+    }
+}
 class Solution {
-    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
-        
-        // Build graph
-        // node -> [[neighbor,distance]]
-        Map<Integer, List<int[]>> graph = new HashMap<>();
-        for(int i = 0; i < n; i++) graph.put(i, new ArrayList<>());
-        
-        for(int[] flight : flights) {
-            int u = flight[0];
-            int v = flight[1];
-            int w = flight[2];
-            graph.get(u).add(new int[] {v, w});
+    public int findCheapestPrice(int n,int flights[][],int src,int dst,int K) {
+
+        // Create the adjacency list to depict airports and flights in
+        // the form of a graph.
+        ArrayList<ArrayList<Pair>> adj = new ArrayList<>(); 
+        for(int i = 0;i<n;i++) {
+            adj.add(new ArrayList<>()); 
+        }
+        int m = flights.length; 
+        for(int i = 0;i<m;i++) {
+            adj.get(flights[i][0]).add(new Pair(flights[i][1], flights[i][2])); 
         }
         
-        // int[] -> [node, distance, moves] for every index
-        Queue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);
-        int[] distance = new int[n];
-        Arrays.fill(distance, -1);
-
-        int[] maxMovesUpToNode = new int[n];
-        Arrays.fill(maxMovesUpToNode, Integer.MAX_VALUE);
-
-        // Initial mark
-        distance[src] = 0;
-        pq.offer(new int[] {src, 0, 0});
+        // Create a queue which stores the node and their distances from the
+        // source in the form of {stops, {node, dist}} with ‘stops’ indicating 
+        // the no. of nodes between src and current node.
+        Queue<Tuple> q = new LinkedList<>(); 
         
-        // Run Relaxation Algorithm
-        while(!pq.isEmpty()) {
-            int[] element = pq.poll();
-            int node = element[0];
-            int dis = element[1];
-            int moves = element[2];
+        q.add(new Tuple(0, src, 0));
 
-            if(maxMovesUpToNode[node] < moves) continue;
-            maxMovesUpToNode[node] = moves;
+        // Distance array to store the updated distances from the source. 
+        int[] dist = new int[n]; 
+        for(int i = 0;i<n;i++) {
+            dist[i] = (int)(1e9); 
+        }
+        dist[src] = 0; 
+
+        // Iterate through the graph using a queue like in Dijkstra with 
+        // popping out the element with min stops first.
+        while(!q.isEmpty()) {
+            Tuple it = q.peek(); 
+            q.remove(); 
+            int stops = it.first; 
+            int node = it.second; 
+            int cost = it.third; 
             
-            for(int[] edge : graph.get(node)) {
-                int neighbor = edge[0], weight = edge[1];
+            // We stop the process as soon as the limit for the stops reaches.
+            if(stops > K) continue; 
+            for(Pair iter: adj.get(node)) {
+                int adjNode = iter.first; 
+                int edW = iter.second; 
                 
-                int neighborNewDistance = weight + dis;
-                if(distance[neighbor] == -1 || neighborNewDistance < distance[neighbor]) {
-                    distance[neighbor] = neighborNewDistance;
-                }
-                // If we have moves left.
-                if(k != moves) {
-                    pq.offer(new int[] {neighbor, neighborNewDistance, moves + 1});
+                // We only update the queue if the new calculated dist is
+                // less than the prev and the stops are also within limits.
+                if (cost + edW < dist[adjNode] && stops <= K) {
+                    dist[adjNode] = cost + edW; 
+                    q.add(new Tuple(stops + 1, adjNode, cost + edW)); 
                 }
             }
         }
-        
-        
-        return distance[dst];
+        // If the destination node is unreachable return ‘-1’
+        // else return the calculated dist from src to dst.
+        if(dist[dst] == (int)(1e9)) return -1; 
+        return dist[dst]; 
     }
 }
