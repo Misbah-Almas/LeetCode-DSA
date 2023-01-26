@@ -25,7 +25,7 @@ class Solution {
         List<Integer> ans = new ArrayList<>();
         // inOrder(root, ans);
         // return ans;
-        //Morris inOrder
+        //Morris inOrder..
         TreeNode curr = root;
         while(curr != null){
             if(curr.left==null){
