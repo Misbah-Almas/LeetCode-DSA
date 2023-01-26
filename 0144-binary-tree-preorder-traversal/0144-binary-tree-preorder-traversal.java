@@ -24,6 +24,7 @@ class Solution {
         List<Integer> ans = new ArrayList<>();
         // preOrder(root, ans);
         // return ans;
+        //Morris preOrder..
         TreeNode curr = root;
         while(curr != null){
             if(curr.left==null){
