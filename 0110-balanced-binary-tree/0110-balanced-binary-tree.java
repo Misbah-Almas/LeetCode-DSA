@@ -18,7 +18,7 @@ class Solution {
         if(root==null)return true;
         return height(root) != -1;
     }
-    
+    //bottom up approach...
     private int height(TreeNode root){
         if(root==null)return 0;
         int lh = height(root.left);
