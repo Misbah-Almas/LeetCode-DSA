@@ -1,7 +1,12 @@
 class Solution {
     Set<String> chache = new HashSet<>();
+    int min = 0;
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
-        Set<String> set = new HashSet<>(Arrays.asList(words));
+        Set<String> set = new HashSet<>();
+        for(String word : words){
+            set.add(word);
+            min = Math.min(min, word.length());
+        }
         List<String> res = new ArrayList<>();
         
         for(String word : words){
@@ -17,7 +22,7 @@ class Solution {
         
         if(chache.contains(word))return true;
         
-        for(int i=0; i<word.length(); i++){
+        for(int i=min; i<word.length()-min; i++){
             String left = word.substring(0, i);
             String right = word.substring(i);
             if(set.contains(left)){
