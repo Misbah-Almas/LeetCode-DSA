@@ -20,7 +20,7 @@ class Solution {
     
     public boolean canForm(String word, Set<String> set){
         
-        if(chache.contains(word))return true; //Dp.
+        if(chache.contains(word))return true; //Dp...
         
         for(int i=min; i<word.length()-min; i++){
             String left = word.substring(0, i);
