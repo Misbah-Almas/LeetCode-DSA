@@ -10,7 +10,7 @@ class Solution {
           }
           return (int)area;
     }
-    
+    //prev smaller index array
     public static int[] pre(int hist[], int n){
 		Stack<Integer> st = new Stack<>();
 		int[] arr = new int[(int)n];
@@ -27,7 +27,7 @@ class Solution {
 		}
 		return arr;
 	}
-
+    //next smaller index array
 	public static int[] next(int hist[], int n){
 		Stack<Integer> st = new Stack<>();
 		int[] arr = new int[(int)n];
