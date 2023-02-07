@@ -6,7 +6,6 @@ class Solution {
     private int atMax(int[] arr){
         HashMap<Integer, Integer> map = new HashMap<>();
         int n = arr.length;
-        if(n<=2)return n;
         int max = 0;
         int s = 0, e = 0;
         while(e<n){
