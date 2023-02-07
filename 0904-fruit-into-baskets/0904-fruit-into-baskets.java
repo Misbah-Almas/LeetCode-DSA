@@ -2,7 +2,7 @@ class Solution {
     public int totalFruit(int[] fruits) {
         return atMax(fruits);
     }
-    
+    //Sliding Window
     private int atMax(int[] arr){
         HashMap<Integer, Integer> map = new HashMap<>();
         int n = arr.length;
