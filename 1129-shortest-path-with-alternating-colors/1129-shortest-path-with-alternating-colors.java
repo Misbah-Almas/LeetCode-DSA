@@ -1,6 +1,6 @@
 class Solution {
         public int[] shortestAlternatingPaths(int n, int[][] red_edges, int[][] blue_edges) {
-        // Two sets one for blu and another for red..
+        // Two sets one for blu and another for red
         Set<Integer>[][] graph = new HashSet[2][n];
         for (int i = 0; i < n; i++) {
             graph[0][i] = new HashSet<>();
