@@ -8,7 +8,7 @@ class Solution {
             l = Math.max(l, arr[i]);
             r += arr[i];
         }
-        
+        //BS to minimize 
         while(l<=r){
             int m = l + (r-l)/2;
             if(isValid(m, arr, days)){
@@ -20,7 +20,7 @@ class Solution {
         
         return ans;
     }
-    
+    //check if valid or not
     boolean isValid(int m, int[] arr, int days){
         int n = arr.length;
         int sum = 0;
