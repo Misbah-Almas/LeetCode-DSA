@@ -1,5 +1,6 @@
 class Solution {
 
+    //..
     public int maxProfit(int[] arr) {
         int n = arr.length;
         int min = arr[0];
