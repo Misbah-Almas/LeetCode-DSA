@@ -1,5 +1,5 @@
 class BrowserHistory {
-    //try using stack again.
+    //try using stack again...
     class Node{
         Node prev;
         Node next;
