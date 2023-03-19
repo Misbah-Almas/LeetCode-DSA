@@ -1,45 +1,31 @@
 class BrowserHistory {
-    //try using stack again...
-    class Node{
-        Node prev;
-        Node next;
-        String url;
-        Node(String url){
-            prev = null;
-            next = null;
-            this.url = url;
-        }
-    }
-        
-    Node curr;
-
+    
+    Stack<String> forHis;
+    Stack<String> bacHis;
+    
     public BrowserHistory(String homepage) {
-        curr = new Node(homepage);
+        forHis = new Stack<>();
+        bacHis = new Stack<>();
+        bacHis.push(homepage);
     }
     
     public void visit(String url) {
-        Node temp = new Node(url);
-        curr.next = temp;
-        temp.prev = curr;
-        curr = curr.next;
+        forHis.clear();
+        bacHis.push(url);
     }
     
     public String back(int steps) {
-        while(curr.prev!=null && steps>0){
-            curr = curr.prev;
-            steps--;
+        while(bacHis.size()>1 && steps-->0){
+            forHis.push(bacHis.pop());
         }
-        
-        return curr.url;
+        return bacHis.peek();
     }
     
     public String forward(int steps) {
-        while(curr.next!=null && steps>0){
-            curr = curr.next;
-            steps--;
+        while((!forHis.empty() && steps-->0)){
+            bacHis.push(forHis.pop());
         }
-        
-        return curr.url;
+        return bacHis.peek();
     }
 }
 
