@@ -15,7 +15,7 @@ class Solution {
 			graph.get(y).add(x);
 		}
 
-		ArrayList<Long> nodesCount = new ArrayList<>();
+		//ArrayList<Long> nodesCount = new ArrayList<>();
 		boolean[] vis = new boolean[n];
         long ans = 0, sum = n;
 		for(int i=0; i<n; i++){
