@@ -8,7 +8,7 @@ class Solution {
             int r = potions.length;
             while(l<r){
                 int m = l + (r-l)/2;
-                long product = potions[m]*1l*spells[i];
+                long product = (long)potions[m]*spells[i];
                 if(product >= success){
                     r = m;
                 }
